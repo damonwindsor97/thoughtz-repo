@@ -51,6 +51,7 @@ export function AuthProvider({ children }){
         navigate("/")
     }
 
+    // Export our functions here
     const value = {
         user,
         loginSaveUser,

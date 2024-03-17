@@ -87,13 +87,13 @@ module.exports = {
             const emailMatch = await findUser(email);
             // if there is 1, then...
             if(emailMatch.length === 0){
-                return next(ApiError.badRequest('Incorrect Credentials (DEBUG: email)'))
+                return next(ApiError.badRequest('Incorrect Credentials'))
             };
 
             // Authenticate existing user with password check
             const passwordMatch = await comparePassword(emailMatch, password);
             if(!passwordMatch){
-                return next(ApiError.badRequest('The credentials entered are not correct (DEBUG: pwd)'))
+                return next(ApiError.badRequest('Incorrect Credentials'))
             }
 
             // User is all good to go; issue user object & token to client
