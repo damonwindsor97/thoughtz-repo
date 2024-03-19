@@ -12,4 +12,5 @@ export const app = style({
 export const appContent = style({
     margin: `${vars.space.none} 0`,
     flex: 1,
+    backgroundColor: `${vars.colors.brandLight}`
 })

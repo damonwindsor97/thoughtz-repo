@@ -114,3 +114,13 @@ export const LoginInputField = style({
         backgroundColor: `${vars.colors.notWhite}`
     }
 })
+
+export const passwordInfo = style({
+
+})
+
+export const icon = style({
+    position: 'absolute',
+    padding: '10px',
+    marginTop: '5px'
+})

@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { useAuth } from '../src/contexts/AuthContext'
+import useAuth from './hooks/useAuth'
 
 import Layout from './layout/Layout'
 
@@ -8,8 +8,6 @@ import NotFound from './pages/NotFound'
 import MainPage from './pages/MainPage'
 
 import AuthRoutes from './layout/AuthRoutes'
-
-
 
 
 function App() {

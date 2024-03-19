@@ -31,7 +31,7 @@ module.exports = {
                     break
 
                 case 'password': 
-                next(ApiError.badRequest('You must provide a valid password: Must be at least 7 characters long, include 1 Uppercase Character, 1 Lowercase Character, 1 Digit & 1 Special Character'))
+                next(ApiError.badRequest('You must provide a valid password'))
                 break
 
                 default: 

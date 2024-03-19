@@ -1,14 +1,20 @@
 import * as styles from './TaAuthCard.css';
 
-import { useState, useRef, useContext } from 'react';
+import { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import authServices from '../../services/authService';
 import { toast } from 'react-toastify';
-import { useAuth } from '../../contexts/AuthContext';
+import useAuth from '../../hooks/useAuth';
 
 import BarLoader from 'react-spinners/BarLoader'
 import TaButton from '../common/TaButton'
 import ClerkImage from '../../assets/clerk-logo.png'
+
+import { IoInformationCircle } from "react-icons/io5";
+import { IoPerson } from "react-icons/io5";
+import { IoMail } from "react-icons/io5";
+import { RiLockPasswordFill } from "react-icons/ri";
+
 
 import { Tabs } from '@mui/base/Tabs';
 import { TabsList } from '@mui/base/TabsList';
@@ -56,13 +62,12 @@ export default function TaAuthCard() {
 
         // Call to our API
         try {
-            const response = await axios.post("/api/auth/register", user)
+            const response = await authServices.register(user)
             // Navigate use to the Main Page
             loginSaveUser(response.data)
             navigate('/feed')
         } catch (error) {
             console.log(error.response)
-            toast.error(error.response.data)
             setTimeout(() => {setLoading(false)}, 1000)
         }
 
@@ -74,13 +79,12 @@ export default function TaAuthCard() {
 
         // Call to our API
         try {
-            const response = await axios.post("/api/auth/login", user)
+            const response = await authServices.login(user)
             loginSaveUser(response.data)
             // Navigate use to the Main Page
             navigate('/feed')
         } catch (error) {
             console.log(error.response)
-            toast.error(error.response.data)
             setTimeout(() => {setLoading(false)}, 1000)
         }
 
@@ -132,7 +136,7 @@ export default function TaAuthCard() {
                                     </div>
 
                                     <div className={styles.CardFooter}>
-                                    <TaButton content="Log In" type="submit"/>
+                                    <TaButton content={loading ? <BarLoader/> : "Log In"} type="submit" onClick={handleLogin}/>
 
                                     <div className={styles.AltSignIn}>
                                         <Link>Or Sign-In via Clerk <img src={ClerkImage} className={styles.ClerkLogo}/></Link>
@@ -155,6 +159,7 @@ export default function TaAuthCard() {
                                     className={styles.SignupInputField}
                                     onChange={handleTextChange}
                                     />
+
                                     <input
                                     type="email"
                                     name="email"
@@ -171,6 +176,7 @@ export default function TaAuthCard() {
                                         className={styles.SignupInputField}
                                         onChange={handleTextChange}
                                     />
+                                    {/* <p>Must be at least 7 characters long, include 1 Uppercase Character, 1 Lowercase Character, 1 Digit & 1 Special Character</p> */}
 
                                     <input 
                                         type="password" 
