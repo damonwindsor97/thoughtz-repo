@@ -10,11 +10,9 @@ import BarLoader from 'react-spinners/BarLoader'
 import TaButton from '../common/TaButton'
 import ClerkImage from '../../assets/clerk-logo.png'
 
-import { IoInformationCircle } from "react-icons/io5";
-import { IoPerson } from "react-icons/io5";
-import { IoMail } from "react-icons/io5";
-import { RiLockPasswordFill } from "react-icons/ri";
-
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import InfoIcon from '@mui/icons-material/Info';
 
 import { Tabs } from '@mui/base/Tabs';
 import { TabsList } from '@mui/base/TabsList';
@@ -176,14 +174,13 @@ export default function TaAuthCard() {
                                         className={styles.SignupInputField}
                                         onChange={handleTextChange}
                                     />
-                                    {/* <p>Must be at least 7 characters long, include 1 Uppercase Character, 1 Lowercase Character, 1 Digit & 1 Special Character</p> */}
-
                                     <input 
                                         type="password" 
                                         ref={passwordConfirmRef}
-                                        placeholder='Confirm Password' 
+                                        placeholder='Confirm Password ' 
                                         className={styles.SignupInputField}
                                     />
+                                    <label className={styles.passwordInfo}>Must be at least 7 characters long, include 1 Uppercase, 1 Lowercase, 1 Digit & 1 Special Character</label>
                                 </div>
 
                                 <div className={styles.CardFooter}>

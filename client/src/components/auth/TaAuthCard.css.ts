@@ -3,7 +3,8 @@ import { vars } from '../../styles/themes.css'
 
 export const CardContainer = style({
     width: '25em',
-    marginBottom: '5em'
+    marginBottom: '5em',
+
 })
 
 export const AuthCard = style({
@@ -46,7 +47,7 @@ export const ActiveTab = style({
 export const SignupCard = style({
     marginTop: '1em',
     width: '25em',
-    height: '29em',
+    height: '30em',
     borderRadius: '50px',
     boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
     backgroundColor: `${vars.colors.primary}`
@@ -57,9 +58,6 @@ export const CardContent = style({
     padding: '1.5em'
 })
 
-export const CardInputs = style({
-
-})
 
 export const SignupInputField = style({
     fontSize: '20px',
@@ -116,11 +114,8 @@ export const LoginInputField = style({
 })
 
 export const passwordInfo = style({
-
+    fontSize: `${vars.fontSize['1x']}`,
+    padding: '0',
+    margin: '0'
 })
 
-export const icon = style({
-    position: 'absolute',
-    padding: '10px',
-    marginTop: '5px'
-})

@@ -3,16 +3,33 @@ import { vars } from "../styles/themes.css";
 
 
 export const Header = style({
-
+height: '2.5em'
 })
 
 export const Nav = style({
     float: 'left'
 })
 
+export const NavList = style({
+    overflow: 'hidden',
+    marginTop: '5px'
+})
+
 export const NavItem = style({
-    display: 'inline-block',
-    padding: '10px'
+    display: 'inline',
+    textAlign: 'center',
+    padding: '14px 16px' ,
+
+})
+
+export const NavLink = style({
+    textDecoration: 'none',
+    color: `${vars.colors.complementary}`,
+
+    ":hover": {
+        borderBottom: `${vars.colors.brand} 2px solid`,
+        color: `${vars.colors.brand}`
+    }
 })
 
 export const LogoDiv = style({
@@ -20,5 +37,5 @@ export const LogoDiv = style({
 })
 
 export const Logo = style({
-    height: '50px'
+    height: '40px'
 })

@@ -14,15 +14,15 @@ function Header() {
     return (
       <div className={styles.Header}>
         <div className={styles.Nav}>
-          <ul>
-            <li className={styles.NavItem}>Home</li>
-            <li className={styles.NavItem}>Profile</li>
-            <li className={styles.NavItem}>Logout</li>
+          <ul className={styles.NavList}>
+            <li className={styles.NavItem}><a href="" className={styles.NavLink}>Home</a></li>
+            <li className={styles.NavItem}><a href="" className={styles.NavLink}>Profile</a></li>
+            <li className={styles.NavItem}><a href="" className={styles.NavLink}>Logout</a></li>
           </ul>
         </div>
-        <div className={styles.LogoDiv}>
+        {/* <div className={styles.LogoDiv}>
           <img className={styles.Logo} src={Logo} alt="thoughtz"/>
-        </div>
+        </div> */}
       </div>
     )
   } else {
