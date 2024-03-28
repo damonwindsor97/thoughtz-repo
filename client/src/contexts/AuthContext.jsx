@@ -10,14 +10,14 @@ const AuthContext = createContext();
 
 export function AuthProvider({ children }){
     // Global auth properties and methods  for our WHOLE application to access
-    let navigate = useNavigate()
+    let navigate = useNavigate();
 
     // Contain user obbject and token if logged in
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        const userData = getCurrentUser();
-        setUser(userData)
+        const userData = getCurrentUser()
+        setUser(userData);
     }, [])
 
     // 1. Register & Login
@@ -30,12 +30,14 @@ export function AuthProvider({ children }){
         setHeaderToken()
     }
 
-    // 2. Retrieve user from localStorage
+    // Retrieve the user from localStorage
     function getCurrentUser(){
         try {
-            let token = localStorage.getItem("userToken");
-            const savedUser = jwtDecode(token)
-            return savedUser;
+            // Check to see if there's a user
+            let token = localStorage.getItem("userToken")
+            // If so it saves it and parses as JSON
+            const savedUser = jwtDecode(token);
+            return savedUser
         } catch (error) {
             return null
         }

@@ -1,13 +1,14 @@
 import * as styles from './Header.css'
 
 import useAuth from "../hooks/useAuth"
+import { Link } from 'react-router-dom'
 
 import Logo from '../assets/FULL_LOGO.png'
 
 
 function Header() {
 
-  const { user } = useAuth()
+  const { user, logoutUser } = useAuth()
 
   // IF there is a user, show navbar, else show nothing
   if(user){
@@ -15,9 +16,9 @@ function Header() {
       <div className={styles.Header}>
         <div className={styles.Nav}>
           <ul className={styles.NavList}>
-            <li className={styles.NavItem}><a href="" className={styles.NavLink}>Home</a></li>
-            <li className={styles.NavItem}><a href="" className={styles.NavLink}>Profile</a></li>
-            <li className={styles.NavItem}><a href="" className={styles.NavLink}>Logout</a></li>
+            <li className={styles.NavItem}><Link to="/" className={styles.NavLink}>Home</Link></li>
+            <li className={styles.NavItem}><Link to="/profile/:id" className={styles.NavLink}>Profile</Link></li>
+            <li className={styles.NavItem}><a className={styles.NavLink} onClick={logoutUser}>Logout</a></li>
           </ul>
         </div>
         {/* <div className={styles.LogoDiv}>

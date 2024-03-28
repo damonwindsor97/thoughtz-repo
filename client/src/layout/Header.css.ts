@@ -28,7 +28,9 @@ export const NavLink = style({
 
     ":hover": {
         borderBottom: `${vars.colors.brand} 2px solid`,
-        color: `${vars.colors.brand}`
+        color: `${vars.colors.brand}`,
+        cursor: 'pointer',
+        transition: 'ease-in-out 0.2s'
     }
 })
 

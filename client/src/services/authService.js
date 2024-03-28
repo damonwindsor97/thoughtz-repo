@@ -1,26 +1,28 @@
-import api from './api';
+import api from './api'
 
-// Register POST request
+// REGISTER POST
 async function register(data){
     const response = await api.post(
         "auth/register",
         data
-    )
+    );
+    console.log(response?.data)
     return response
 }
 
-// Login POST request
+
+// LOGIN PSOT
 async function login(data){
     const response = await api.post(
         "auth/login",
         data
-    )
+    );
     return response
 }
 
 
-const authServices = {
-    register,
-    login
+const authService = {
+    register, login
 }
-export default authServices;
+
+export default authService

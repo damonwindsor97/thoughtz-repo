@@ -26,14 +26,15 @@ api.interceptors.response.use(null, (error) => {
     return Promise.reject(error)
 })
 
+// SETTING DEFAULT CONFIGS (header token)
 export function setHeaderToken(){
-    const token = localStorage.getItem("userToken")
+    const token = localStorage.getItem("userToken");
     if(token){
         api.defaults.headers.common["Authorization"] = "Bearer " + token;
     } else {
-        delete api.defaults.headers.common["Authorization"]
+     delete api.defaults.headers.common['Authorization'];   
     }
-    setHeaderToken()
 }
+setHeaderToken();
 
 export default api

@@ -10,10 +10,6 @@ import BarLoader from 'react-spinners/BarLoader'
 import TaButton from '../common/TaButton'
 import ClerkImage from '../../assets/clerk-logo.png'
 
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import InfoIcon from '@mui/icons-material/Info';
-
 import { Tabs } from '@mui/base/Tabs';
 import { TabsList } from '@mui/base/TabsList';
 import { TabPanel } from '@mui/base/TabPanel';
@@ -63,7 +59,7 @@ export default function TaAuthCard() {
             const response = await authServices.register(user)
             // Navigate use to the Main Page
             loginSaveUser(response.data)
-            navigate('/feed')
+            navigate('/')
         } catch (error) {
             console.log(error.response)
             setTimeout(() => {setLoading(false)}, 1000)
@@ -80,7 +76,7 @@ export default function TaAuthCard() {
             const response = await authServices.login(user)
             loginSaveUser(response.data)
             // Navigate use to the Main Page
-            navigate('/feed')
+            navigate('/')
         } catch (error) {
             console.log(error.response)
             setTimeout(() => {setLoading(false)}, 1000)

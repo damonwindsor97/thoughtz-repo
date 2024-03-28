@@ -2,6 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
+const fileUpload = require('express-fileupload')
 require('dotenv').config()
 
 const dbPing = require('./config/db')
@@ -19,8 +20,8 @@ app.use(helmet());
 
 // CORS Security
 // Setup custom domain once hosted
-// app.use(cors({ origin: "*" })) // default
-app.use(cors(corsOptions)) //Whitelisting
+app.use(cors({ origin: "*" })) // default
+// app.use(cors(corsOptions)) //Whitelisting
 
 // ability to read JSON
 app.use(express.json());
@@ -30,6 +31,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'))
 debugStartup("Parsing middleware enabled")
 
+// File / Image parsing middleware
+app.use(fileUpload({ createParentPath: true }))
 
 app.use('/api', routes());
 

@@ -6,10 +6,9 @@ function AuthRoutes() {
   const location = useLocation();
 
   return (
+    // Return to Login page if no user is detected, otherwise take them there
     !getCurrentUser()
-    // If there is no user, redirect back to home
-      ? <Navigate to="/" state={{ from: location }} replace/>
-      // Give access to what they wanted
+      ? <Navigate to="/" state={{ from: location }} replace />
       : <Outlet/>
   )
 }

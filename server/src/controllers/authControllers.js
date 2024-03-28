@@ -1,12 +1,15 @@
 const { db } = require('../config/db')
 const ApiError = require('../utils/ApiError')
 const { findUser, hashPassword, userDetailsToJSON, jwtSignUser,comparePassword } = require('../utils/AuthServices')
+const {storageBucketUpload} = require('../utils/bucketServices')
+const debugREAD = require('debug')('app:read')
+const debugWRITE = require('debug')('app:write')
 
 require('dotenv').config()
 const config = require('../config/config')
 
 module.exports = {
-    
+    // GET Users
     async listUsers(req, res, next){
         // Store the Doc query in Var & call GET method
         const usersRef = db.collection('users');
@@ -34,6 +37,7 @@ module.exports = {
         }
     },
 
+    // POST User
     async register(req, res, next){
         try {
             const {username, email, password} = req.body;
@@ -79,6 +83,7 @@ module.exports = {
         }
     },
 
+    // POST User 
     async login(req, res, next){
         try {
             const { email, password } = req.body;
@@ -107,6 +112,41 @@ module.exports = {
 
         } catch (error) {
             return next(ApiError.internalError('Your profile couldnt not be logged into', error));
+        }
+    },
+
+    // GET User
+    async getUserById(req, res, next){
+        debugREAD(req.params.id)
+        try {
+            // Store reference to the document, then query it
+            const userRef = db.collection('users').doc(req.params.id)
+            const doc = await userRef.get();
+
+            // 400 Error Check
+            // Does the document not exist
+            if(!doc.exists){
+                return next(ApiError.badRequest('The User you were looking for does not exist'))
+            } else {
+                res.send(doc.data());
+            }
+            
+        } catch (error) {
+            return next(ApiError.internalError('Your request could not be processed', error));
+        }
+    },
+
+
+    // PUT User
+    async editProfile(req, res, next){
+        debugWRITE(req.body)
+        debugWRITE(req.files)
+        debugWRITE(req.locals)
+        try {
+            res.send('Edit Profile')
+        
+        } catch (error) {
+            return next(ApiError.internalError('Your request could not be made at this time', error))
         }
     }
 }

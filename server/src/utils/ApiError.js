@@ -16,6 +16,16 @@ class ApiError {
         return new ApiError(404, `Resource Not Found`)
     }
 
+    // 413 Entity too large
+    static tooLarge(message){
+        return new ApiError(413, `Upload failed: ${message}`)
+    }
+
+    // 422 Unprocessable Entity
+    static cannotProcess(message){
+        return new ApiError(422, `Upload failed: ${message}`)
+    }
+
     // 500  - Internal Server Error
     static internalError(message, err){
         console.error(err);

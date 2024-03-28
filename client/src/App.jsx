@@ -1,28 +1,34 @@
 import { Route, Routes } from 'react-router-dom'
-import useAuth from './hooks/useAuth'
 
 import Layout from './layout/Layout'
+import AuthRoutes from './layout/AuthRoutes'
 
 import Home from './pages/Home/Home'
-import NotFound from './pages/NotFound'
-import MainPage from './pages/MainPage'
 
-import AuthRoutes from './layout/AuthRoutes'
+import Profile from './pages/Profile/Profile'
+import EditProfile from './pages/Profile/EditProfile'
+
+import NotFound from './pages/NotFound'
+
 
 
 function App() {
-  const { user } = useAuth()
 
   return (
     <Routes>
       <Route path="/" element={<Layout/>}>
-
-        {/* No user? they can see the Home Page */}
-        {!user && <Route index element={<Home/>}/>}
+        {/* Only logged out users will see this page */}
+        <Route index element={<Home/>}/>
 
         {/* PRIVATE AUTH ROUTES FOR USERS ONLY */}
         <Route element={<AuthRoutes/>}>
-          <Route path="feed" element={<MainPage/>}/>
+          <Route path="profile">
+            <Route path=":id" element={<Profile/>}/>
+            <Route path="edit/:id" element={<EditProfile/>}/>
+
+          </Route>
+
+          {/* User Post Routes */}
 
         </Route>
 
