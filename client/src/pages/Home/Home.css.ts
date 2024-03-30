@@ -55,6 +55,7 @@ export const BannerContainer = style({
     padding: '5em',
     backgroundColor: `${vars.colors.primary}`,
 
-    transform: 'translateY(50%)',
+
+    marginTop: '3em'
 
 })

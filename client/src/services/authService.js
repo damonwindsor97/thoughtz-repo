@@ -20,9 +20,15 @@ async function login(data){
     return response
 }
 
+async function getById(id){
+    const response = await api.get(
+        '/auth/user/' + id
+    )
+    return response
+}
 
 const authService = {
-    register, login
+    register, login, getById
 }
 
 export default authService

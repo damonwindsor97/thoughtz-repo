@@ -1,16 +1,88 @@
 import * as styles from './Profile.css'
-import axios from 'axios'
+
+import { useParams } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
+import authService from '../../services/authService'
+
+import MoonLoader from 'react-spinners/MoonLoader'
 
 import TaCard from "../../components/common/TaCard"
 import TaProfileCard from '../../components/common/TaProfileCard'
 
 function Profile() {
 
+    const params = useParams();
 
+    const [userData, setUserData] = useState({
+        id: params.id,
+        username: "",
+        email: "",
+        password: "",
+        first_name: "",
+        last_name: "",
+        bio: "",
+        profile_image: "",
+        cover_image: "",
+        isAdmin: false
+    });
 
+    const { id, username, first_name, last_name, bio, profile_image, cover_image } = userData;
 
+    const [ loading, setLoading ] = useState(true)
+    const [ error, setError ] = useState(false)
 
+    const effectRan = useRef(false);
+    useEffect(() => {
+        if(effectRan.current === false){
+            fetchUser();
+            setLoading(false)
 
+            // prevents double call of useEffect
+            return () => {
+                effectRan.current = true;
+            }
+        }
+    }, [])
+
+    async function fetchUser(){
+        try {
+            const response = await authService.getById(id)
+            const fetchedUser = await response.data
+            console.log(fetchedUser)
+
+            // Updates state value
+            setUserData(userOnMount => ({
+                ...userOnMount,
+                ...fetchedUser
+            }));
+        } catch (error) {
+            console.log(error.response)
+            setError(true)
+        }
+    }
+    
+    if (error) {
+        return (
+            <p className='text-center'>Error Loading Data</p>
+        )
+    }
+
+    if (loading) {
+        return (
+        <div className={styles.profilePage}>
+            <div className={styles.profileContainer}>
+                {/* Cover Photo */}
+                <div>
+                </div>
+                <div className={styles.cardContainer}>
+                    <TaProfileCard title="">
+                        <MoonLoader/>
+                    </TaProfileCard>
+                </div>
+            </div>
+        </div>
+        )
+    }
 
 
   return (
@@ -23,21 +95,18 @@ function Profile() {
             </div>
             <div className={styles.cardContainer}>
                 <TaProfileCard title="">
-                    <img className={styles.profilePicture} src="https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                    <p className={styles.username}>@Swegnesium</p>
-                    <p className={styles.fullname}>Damon Windsor</p>
+                    <img className={styles.profilePicture} src={profile_image}/>
+                    <p className={styles.username}>@{username}</p>
+                    <p className={styles.fullname}>{first_name} {last_name}</p>
                     <div className={styles.profileDetails}>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis et recusandae fugit consectetur alias voluptate possimus. Recusandae laudantium error porro.</p>
-                    </div>
-                    <div className={styles.profileContent}>
-
+                        <p>{bio}</p>
                     </div>
                 </TaProfileCard>
             </div>
         </div>
 
         {/* ------- POSTS -------- */}
-        <div>
+        <div className='mb-5'>
             <TaCard title="Posts" largeCard>
                 <p>There are currently no posts...</p>
             </TaCard>

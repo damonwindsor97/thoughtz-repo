@@ -12,7 +12,11 @@ module.exports = {
         const schema = Joi.object({
             username: Joi.string().alphanum().min(3).max(30).allow(''),
             email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: [ 'com', 'net' ] } }).required(),
-            password: Joi.string().pattern(new RegExp('(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])((?=.*\\W)|(?=.*_))^[^ ]+$')).required()
+            password: Joi.string().pattern(new RegExp('(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])((?=.*\\W)|(?=.*_))^[^ ]+$')).required(),
+            first_name: Joi.string().max(30),
+            last_name: Joi.string().max(48),
+            bio: Joi.string().max(256),
+            profile_image: Joi.string()
         })
         
         // Call JOI to validate

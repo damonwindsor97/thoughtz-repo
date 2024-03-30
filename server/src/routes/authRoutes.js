@@ -4,6 +4,7 @@ const router = express.Router();
 const AuthController = require('../controllers/authControllers')
 const AuthPolicy = require('../policies/authPolicy')
 const imageServerUpload = require('../middleware/imageServerUpload')
+const FilePolicy = require('../policies/filePolicy')
 
 module.exports = () => {
     // GET - /api/auth/users
@@ -15,10 +16,14 @@ module.exports = () => {
     // AUTH LOGIN - api/auth/login
     router.post('/login', AuthPolicy.validateAuth, AuthController.login)
 
-    router.get('/:id', AuthController.getUserById)
+    // api/auth/user/:id
+    router.get('/user/:id', AuthController.getUserById)
 
-    // AUTH PUT
-    router.put('/profile/edit', imageServerUpload, AuthController.editProfile)
+    // AUTH PUT - api/auth/user/edit/:id
+    router.put('/user/edit/:id', 
+        [AuthPolicy.validateAuth, 
+        FilePolicy.fileExtLimiter(['.png', '.jpg', '.jpeg', '.gif']), 
+        imageServerUpload], AuthController.putUserById)
 
     return router
 }

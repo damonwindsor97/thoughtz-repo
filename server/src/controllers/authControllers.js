@@ -1,7 +1,7 @@
 const { db } = require('../config/db')
 const ApiError = require('../utils/ApiError')
 const { findUser, hashPassword, userDetailsToJSON, jwtSignUser,comparePassword } = require('../utils/AuthServices')
-const {storageBucketUpload} = require('../utils/bucketServices')
+const {storageBucketUpload, deleteFileFromBucket} = require('../utils/bucketServices')
 const debugREAD = require('debug')('app:read')
 const debugWRITE = require('debug')('app:write')
 
@@ -115,7 +115,7 @@ module.exports = {
         }
     },
 
-    // GET User
+    // GET User by ID
     async getUserById(req, res, next){
         debugREAD(req.params.id)
         try {
@@ -138,15 +138,63 @@ module.exports = {
 
 
     // PUT User
-    async editProfile(req, res, next){
+    async putUserById(req, res, next){
+        debugWRITE(req.params.id)
         debugWRITE(req.body)
         debugWRITE(req.files)
         debugWRITE(req.locals)
+
+        let downloadURL = null;
         try {
-            res.send('Edit Profile')
-        
+
+            if(req.files){
+                const filename = res.locals.filename;
+                downloadURL = await storageBucketUpload(filename)
+
+                // Delete old image
+                if(req.body.uploadedFile){
+                    debugWRITE(`Deleting old image from storage: ${req.body.uploadedFile}`);
+                    const bucketResponse = await deleteFileFromBucket(req.body.uploadedFile);
+                }
+                
+            } else {
+                console.log('No change to image in DB')
+                downloadURL = req.body.profile_image
+            }
+
         } catch (error) {
-            return next(ApiError.internalError('Your request could not be made at this time', error))
+            return next(ApiError.internalError('An error occured uploading the image to storage', error))
+        }
+
+        try {
+            
+        } catch (error) {
+            return next(ApiError.internalError('An error occured uploading the image to storage', error))
+        }
+        try {
+
+            const {username} = req.body;
+
+            //  Check if username is already in use
+            const userMatch = await findUser(username)
+            if(userMatch.length === 1){
+                return next(ApiError.badRequest("This username is already in use"))
+            }
+
+            // All good? the Users data can now be saved to the database
+            const usersRef = db.collection('users').doc(req.params.id);
+            const response = await usersRef.update({
+                username: username,
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                bio: req.body.bio,
+                profile_image: downloadURL,
+                cover_image: "",
+                isAdmin: false
+            })
+            res.send(response)
+        } catch (error) {
+            return next(ApiError.internalError('Your profile could not be registered', error))
         }
     }
 }

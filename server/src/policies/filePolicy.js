@@ -6,15 +6,16 @@ const filePayloadExists = (req, res, next) => {
     if(!req.files && !req.body.uploadedFile){
         return next(ApiError('No File uploaded'))
     }
+    next()
 }
 
 // Check file size
-const fileSizeLimiter = () => {
+const fileSizeLimiter = (req, res, next) => {
     const MB = 5; 
     const FILE_SIZE_LIMIT = MB * 1024 * 1024;
 
     if(req.files){
-        const file = req.files.image;
+        const file = req.files.profile_image;
         if(file.size > FILE_SIZE_LIMIT){
             const message = `${file.name.toString()} is over the size limit of ${MB}mb`
             return next(ApiError(message))
@@ -27,10 +28,10 @@ const fileSizeLimiter = () => {
 const fileExtLimiter = (allowedExtArray) => {
     return (req, res, next) => {
         if(req.files){
-            const file = req.files.image;
+            const file = req.files.profile_image;
             const fileExtension = path.extname(file.name)
 
-            const allowed =allowedExtArray.include(fileExtension)
+            const allowed =allowedExtArray.includes(fileExtension)
             if(!allowed){
 
                 return next(ApiError.cannotProcess('Not permitted extension'))
