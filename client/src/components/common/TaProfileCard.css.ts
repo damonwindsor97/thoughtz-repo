@@ -21,7 +21,8 @@ export const defaultBox = style({
 })
 
 export const generalCard = style({
-    minWidth: "40vw"
+    minWidth: "40vw",
+    maxWidth: '25em'
 })
 
 export const largeCard = style({

@@ -16,7 +16,8 @@ module.exports = {
             first_name: Joi.string().max(30),
             last_name: Joi.string().max(48),
             bio: Joi.string().max(256),
-            profile_image: Joi.string()
+            profile_image: Joi.string(),
+            uploadedFile: Joi.string()
         })
         
         // Call JOI to validate
@@ -38,6 +39,11 @@ module.exports = {
                 next(ApiError.badRequest('You must provide a valid password'))
                 break
 
+                case 'profile_Image':
+                case 'uploadedFile':
+                    next(ApiError.badRequest(' The existing image URL or path are not in a valid format - please re-upload the image'))
+                    break
+                
                 default: 
                 next(ApiError.internalError('Invalid form data'))
                 break

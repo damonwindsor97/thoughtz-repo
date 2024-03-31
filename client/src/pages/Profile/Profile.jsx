@@ -28,7 +28,7 @@ function Profile() {
 
     const { id, username, first_name, last_name, bio, profile_image, cover_image } = userData;
 
-    const [ loading, setLoading ] = useState(true)
+    const [ loading, setLoading ] = useState(false)
     const [ error, setError ] = useState(false)
 
     const effectRan = useRef(false);
@@ -63,11 +63,15 @@ function Profile() {
     
     if (error) {
         return (
-            <p className='text-center'>Error Loading Data</p>
+          <div className='text-center mt-5'>
+            <p>Error loading page...</p>
+    
+          </div>
         )
-    }
-
-    if (loading) {
+      }
+    
+      // CONDITIONAL LOAD: LLOADING
+      if (loading && effectRan.current === true) {
         return (
         <div className={styles.profilePage}>
             <div className={styles.profileContainer}>
@@ -82,7 +86,7 @@ function Profile() {
             </div>
         </div>
         )
-    }
+      }
 
 
   return (

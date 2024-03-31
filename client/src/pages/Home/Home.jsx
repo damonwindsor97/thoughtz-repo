@@ -19,7 +19,6 @@ function Home() {
         
         <div className={styles.BannerContainer}>
           <div>
-            <h3 className='mb-4'>Welcome: {user.username}</h3>
             <p className='m-2'>We thank you for signing up with us, but unfortunately we are not fully operational as of yet!</p>
             <p>If you would like to edit your profile more, please <Link to={`/profile/edit/${user.id}`}>click here</Link></p>
 

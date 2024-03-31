@@ -1,10 +1,11 @@
 import * as styles from './EditProfile.css'
 
 import { useState, useRef, useEffect } from 'react';
+import { Form } from 'react-bootstrap'
 
 import { useNavigate, useParams } from 'react-router-dom'
-import { toast } from 'react-toastify';
 import authService from '../../services/authService';
+import { getFileFromUrl } from '../../utils/writeUtils';
 
 import MoonLoader from 'react-spinners/MoonLoader';
 import BarLoader from 'react-spinners/BarLoader'
@@ -56,6 +57,14 @@ async function fetchUser(){
           ...userOnMount,
           ...fetchedUser
       }));
+
+      // Save uploaded file string to state
+      if(!fetchedUser.profile_image){
+        console.log('No downloadUrl provided by the database')
+      } else {
+        const fileGlob = getFileFromUrl(fetchedUser.profile_image)
+        setUploadedFile(fileGlob)
+      }
   } catch (error) {
       console.log(error.response)
       setError(true)
@@ -73,12 +82,12 @@ async function fetchUser(){
   });
   }
 
-    // [2] handleFileChange will handle change in state for FILE data
-    const handleFileChange = (e) => {
-      const file = e.target.files[0];
-      setUser({ ...user, profile_image: file });
+  // [2] handleFileChange will handle change in state for FILE data
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setUser({ ...user, profile_image: file });
 
-    }  
+  }  
 
  // [3] handleSubmit will control form submission event
  const handleSubmit = async (e) => {
@@ -88,8 +97,8 @@ async function fetchUser(){
 
     // API Post (refactored)
     const response = await authService.put(id, user, uploadedFile);
-
-    navigate('/store/products');
+    console.log(response)
+    navigate('/');
 
   } catch (err) {
     console.log(err?.response);
@@ -132,6 +141,16 @@ async function fetchUser(){
                   className={styles.SignupInputField}
                   onChange={handleTextChange}
                   />
+                  <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  placeholder="Email Address"
+                  className={styles.SignupInputField}
+                  onChange={handleTextChange}
+                  disabled
+
+                  />
               <input
                   type="text"
                   name="first_name"
@@ -156,42 +175,21 @@ async function fetchUser(){
                   className={`${styles.SignupInputField} h-25`}
                   onChange={handleTextChange}
                   />
-
-                  <input
-                  type="email"
-                  name="email"
-                  value={email}
-                  placeholder="Email Address"
-                  className={styles.SignupInputField}
-                  onChange={handleTextChange}
-                  disabled
-                  hidden
-                  />
-                  <input
-                      type="password"
-                      name="password"
-                      value=""
-                      placeholder="*********"
-                      className={styles.SignupInputField}
-                      onChange={handleTextChange}
-                      disabled
-                      hidden
-                  />
-                  <label>Profile Picture</label>
-                  <input
-                  type="file"
-                  name="profile_image"
-                  value=""
-                  placeholder="Profile Picture"
-                  className={`${styles.SignupInputField}`}
-                  onChange={handleFileChange}
-                  />
+                  
+                  {/* GROUP 6: PRODUCT IMAGE */}
+                  <Form.Group className="mb-3" controlId="image">
+                    <Form.Label>Profile image</Form.Label>
+                    <Form.Control 
+                      type="file"
+                      className="mb-4"
+                      onChange={handleFileChange}
+                    />
+                  </Form.Group>
 
               </div>
 
               <div>
                   <TaButton content={loading ? <BarLoader/> : "Submit"} type="submit" />
-
               </div>
               </form>
             </TaCard>
