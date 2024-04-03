@@ -10,7 +10,7 @@ const config = require('./config/config')
 const corsOptions = require('./config/corsOptions')
 const ApiError = require('./utils/ApiError')
 const apiErrorHandler = require('./middleware/apiErrorHandler')
-const routes = require('./routes/Routes')
+const routes = require('./routes/routes')
 
 const debugStartup = require('debug')('app:startup')
 
