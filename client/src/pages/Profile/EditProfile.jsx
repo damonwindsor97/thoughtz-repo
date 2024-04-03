@@ -97,7 +97,6 @@ async function fetchUser(){
 
     // API Post (refactored)
     const response = await authService.put(id, user, uploadedFile);
-    console.log(response)
     navigate('/');
 
   } catch (err) {

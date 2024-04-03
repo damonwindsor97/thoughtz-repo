@@ -8,6 +8,5 @@ export function getFileFromUrl(downloadUrl){
     fileGlob = fileGlob.substring(0, indexOfEndPath);
 
 
-    console.log(`Generated File GLob: ${fileGlob}`)
     return fileGlob;
 }

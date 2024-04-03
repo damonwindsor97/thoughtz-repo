@@ -1,6 +1,29 @@
 import { style } from "@vanilla-extract/css";
 import { vars } from "../../styles/themes.css";
 
+export const Admin = style({
+    margin: 'auto',
+    textAlign: 'center'
+})
+
+export const Badge = style({
+    display: 'inline-block',
+    fontSize: `${vars.fontSize["1x"]}`,
+    fontWeight: `${vars.fontWeight.bold}`,
+    margin: '5px 5px'
+})
+
+export const DeveloperBadge = style([Badge, {
+    color: 'green',
+    border: `solid 1px green`,
+}])
+
+export const AdminBadge = style([Badge, {
+    color: 'red',
+    border: `solid 1px red`,
+}])
+
+
 export const profilePage = style({
 
 })
@@ -34,7 +57,7 @@ export const cardContainer = style({
 
 export const profileDetails = style({
     textAlign: 'center',
-    margin: '1em'
+
 })
 
 export const profileContent = style({

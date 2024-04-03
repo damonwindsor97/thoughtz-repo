@@ -5,6 +5,7 @@ export const root = createGlobalTheme(":root", {
     fontFamily: {
         brand: "",
         body: "Inter, apple-system, sans-serif",
+
     },
 
     fontSize: {

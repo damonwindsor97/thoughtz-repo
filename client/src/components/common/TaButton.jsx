@@ -2,9 +2,9 @@ import * as styles from './TaButton.css'
 
 
 
-function TaButton({content}) {
+function TaButton({content, onClick}) {
   return (
-    <button className={styles.Button}>{content}</button>
+    <button onClick={onClick}  className={styles.Button}>{content}</button>
   )
 }
 

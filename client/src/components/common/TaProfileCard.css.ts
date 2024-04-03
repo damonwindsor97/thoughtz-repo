@@ -14,7 +14,7 @@ export const defaultBox = style({
     minHeight: '25em',
     margin: '0 auto 0 auto',
     padding: "2rem",
-    borderRadius: '0 0 10px 10px',
+    borderRadius: '10px',
     boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
     backgroundColor: `${vars.colors.primary}`,
     marginBottom: '1em'

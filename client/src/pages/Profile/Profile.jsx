@@ -2,6 +2,7 @@ import * as styles from './Profile.css'
 
 import { useParams } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
+import { toast } from 'react-toastify'
 import authService from '../../services/authService'
 
 import MoonLoader from 'react-spinners/MoonLoader'
@@ -12,7 +13,6 @@ import TaProfileCard from '../../components/common/TaProfileCard'
 function Profile() {
 
     const params = useParams();
-
     const [userData, setUserData] = useState({
         id: params.id,
         username: "",
@@ -26,38 +26,45 @@ function Profile() {
         isAdmin: false
     });
 
-    const { id, username, first_name, last_name, bio, profile_image, cover_image } = userData;
+    const { id, username, first_name, last_name, bio, profile_image, isAdmin } = userData;
 
-    const [ loading, setLoading ] = useState(false)
+    const [ loading, setLoading ] = useState(true)
     const [ error, setError ] = useState(false)
 
     const effectRan = useRef(false);
     useEffect(() => {
         if(effectRan.current === false){
             fetchUser();
-            setLoading(false)
-
-            // prevents double call of useEffect
+    
+            // Delay hiding the loading spinner for demonstration purposes
+            const timer = setTimeout(() => {
+                setLoading(false);
+            }, 1000);
+    
+            // Clean up function
             return () => {
+                clearTimeout(timer);
                 effectRan.current = true;
-            }
+            };
         }
-    }, [])
+    }, []);
 
     async function fetchUser(){
         try {
             const response = await authService.getById(id)
             const fetchedUser = await response.data
-            console.log(fetchedUser)
-
+     
             // Updates state value
             setUserData(userOnMount => ({
                 ...userOnMount,
                 ...fetchedUser
             }));
+            setLoading(false)
         } catch (error) {
             console.log(error.response)
             setError(true)
+            setLoading(false)
+            toast.error('Internal Server Error')
         }
     }
     
@@ -71,19 +78,14 @@ function Profile() {
       }
     
       // CONDITIONAL LOAD: LLOADING
-      if (loading && effectRan.current === true) {
+      if (loading) {
         return (
-        <div className={styles.profilePage}>
-            <div className={styles.profileContainer}>
-                {/* Cover Photo */}
-                <div>
-                </div>
-                <div className={styles.cardContainer}>
-                    <TaProfileCard title="">
-                        <MoonLoader/>
+        <div>
+                <div className='mt-5'>
+                    <TaProfileCard  className='mt-5' title="Loading...">
+                        <MoonLoader className='m-auto'/>
                     </TaProfileCard>
                 </div>
-            </div>
         </div>
         )
       }
@@ -93,10 +95,7 @@ function Profile() {
     <div className={styles.profilePage}>
 
         <div className={styles.profileContainer}>
-            {/* Cover Photo */}
-            <div>
-                <img className={styles.coverPicture} src="https://images.unsplash.com/photo-1553570739-330b8db8a925?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-            </div>
+
             <div className={styles.cardContainer}>
                 <TaProfileCard title="">
                     <img className={styles.profilePicture} src={profile_image}/>
@@ -105,6 +104,17 @@ function Profile() {
                     <div className={styles.profileDetails}>
                         <p>{bio}</p>
                     </div>
+
+                    {userData.isAdmin === true &&
+                        <div className={styles.Admin}>
+                            <div className={`${styles.DeveloperBadge} `}>
+                                <p className='mb-0 p-1 '>Developer</p>
+                            </div>
+                            <div className={`${styles.AdminBadge} `}>
+                                <p className='mb-0 p-1 '>Admin</p>
+                            </div>
+                        </div>
+                    }
                 </TaProfileCard>
             </div>
         </div>

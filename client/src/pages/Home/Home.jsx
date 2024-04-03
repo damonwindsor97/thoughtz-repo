@@ -9,7 +9,7 @@ import SmallBend from '../../assets/small_bend.png'
 import BigSquiggle from '../../assets/big_squiggle.png'
 
 function Home() {
-  const { user, logoutUser } = useAuth()
+  const { user } = useAuth()
 
   return (
     <div>
@@ -21,8 +21,6 @@ function Home() {
           <div>
             <p className='m-2'>We thank you for signing up with us, but unfortunately we are not fully operational as of yet!</p>
             <p>If you would like to edit your profile more, please <Link to={`/profile/edit/${user.id}`}>click here</Link></p>
-
-            <button onClick={logoutUser} className='m-2'>Logout</button>
           </div>
         </div>
 
