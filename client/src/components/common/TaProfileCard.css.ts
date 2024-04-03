@@ -16,7 +16,13 @@ export const defaultBox = style({
     padding: "2rem",
     borderRadius: '10px',
     boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-    backgroundColor: `${vars.colors.primary}`,
+    background: `linear-gradient(
+        45deg,
+        ${vars.colors.notWhite} 0%,
+        ${vars.colors.primary} 50%,
+        ${vars.colors.notWhite} 50%,
+        ${vars.colors.primary} 100%
+    )`,
     marginBottom: '1em'
 })
 
