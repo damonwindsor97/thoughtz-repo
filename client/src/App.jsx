@@ -10,8 +10,6 @@ import EditProfile from './pages/Profile/EditProfile'
 
 import NotFound from './pages/NotFound'
 
-
-
 function App() {
 
   return (
