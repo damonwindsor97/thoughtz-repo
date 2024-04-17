@@ -1,8 +1,13 @@
 import * as styles from './Home.css'
 import { Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
+
+import authService from '../../services/authService'
 import useAuth from '../../hooks/useAuth'
 
 import TaAuthCard from '../../components/auth/TaAuthCard'
+import SyncLoader from 'react-spinners/SyncLoader'
+
 
 import Logo from '../../assets/FULL_LOGO.png'
 import SmallBend from '../../assets/small_bend.png'
@@ -11,6 +16,39 @@ import TaCard from '../../components/common/TaCard'
 
 function Home() {
   const { user } = useAuth()
+
+  const [userCountData, setUserCountData] = useState()
+  const [loading, setLoading] = useState(true)
+
+  
+  async function fetchUsers() {
+    try {
+      const response = await authService.getAllUsers();
+      const fetchedUsers = response.data;
+  
+      const userCount = fetchedUsers.length;
+      setUserCountData(userCount);
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const effectRan = useRef(false);
+  useEffect(() => {
+    if(effectRan.current === false){
+      fetchUsers();
+
+      const timer = setTimeout(() => {
+        setLoading(false)
+      }, 1000)
+
+      return () => {
+        setTimeout(timer)
+        effectRan.current = true
+      };
+    }
+  }, [])
 
   return (
     <div>
@@ -27,16 +65,23 @@ function Home() {
 
           <div className={`${styles.InfoBlocks}`}>
             <div className={styles.InfoBlock}>
-              <TaCard smallCard className={styles.InfoBlock}>
-                <p className={styles.DataNumber}>69</p>
-                <span className={styles.InfoText}>Active Users</span>
+              <TaCard smallCard>
+                  <p className={styles.DataNumber}>
+                  {loading === true ? (
+                    <SyncLoader color='white'/>
+                  ) : (
+                    userCountData
+                  )}
+
+                  </p>
+                  <span className={styles.InfoText}>Active Users</span>
               </TaCard>
             </div>
 
             <div className={styles.InfoBlock}>
               <TaCard smallCard>
                 <p className={styles.DataNumber}>69</p>
-                <span className={styles.InfoText}>More Data</span>
+                <span className={styles.InfoText}>Thoughts Created</span>
               </TaCard>
             </div>
           </div>

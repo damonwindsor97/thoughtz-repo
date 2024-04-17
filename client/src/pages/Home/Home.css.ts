@@ -90,15 +90,23 @@ export const InfoBlock = style({
     width: '50%',
     display: 'inline-block',
 
+
+})
+
+export const InfoContent = style({
+    ':hover': {
+        border: `1px solid ${vars.colors.brand}`
+    }
 })
 
 export const DataNumber = style({
+    marginTop: '35px',
     fontSize: `${vars.fontSize["8x"]}`,
     fontWeight: `${vars.fontWeight.extraBold}`,
-
+    textShadow: `0 0 10px ${vars.colors.brand}`
 })
 
 export const InfoText = style({
-
-
+    fontSize: `${vars.fontSize["4x"]}`,
+    fontWeight: `${vars.fontWeight.bolder}`
 })
