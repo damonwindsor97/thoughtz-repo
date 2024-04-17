@@ -15,14 +15,9 @@ export const defaultBox = style({
     margin: '0 auto 0 auto',
     padding: "2rem",
     borderRadius: '10px',
-    boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-    background: `linear-gradient(
-        45deg,
-        ${vars.colors.notWhite} 0%,
-        ${vars.colors.primary} 50%,
-        ${vars.colors.notWhite} 50%,
-        ${vars.colors.primary} 100%
-    )`,
+    backdropFilter: 'blur(5px)',
+    background: 'rgba(255, 255, 255, 0.1)',
+
     marginBottom: '1em'
 })
 

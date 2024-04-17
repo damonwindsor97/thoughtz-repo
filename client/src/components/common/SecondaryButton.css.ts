@@ -2,17 +2,18 @@ import { style } from "@vanilla-extract/css";
 import { vars } from "../../styles/themes.css";
 
 export const SecondaryButton = style({
-    color: `${vars.colors.primary}`,
-    backgroundColor: `${vars.colors.brand}`,
-    lineHeight: '1.5em',
-    borderRadius: '5px',
+    color: `${vars.colors.brand}`,
+    backgroundColor: `${vars.colors.transparent}`,
+    lineHeight: '1em',
+    borderRadius: '10px',
     fontSize: `${vars.fontSize["2x"]}`,
     cursor: 'pointer',
-    borderStyle: 'none',
+    border: `solid 1px ${vars.colors.brand}`,
     transition: 'ease-in-out .4s',
 
     ":hover": {
-        backgroundColor: `${vars.colors.brandDark}`
+        backgroundColor: `${vars.colors.brand}`,
+        color: `${vars.colors.primary}`
     }
 })
 

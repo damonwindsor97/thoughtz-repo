@@ -16,17 +16,24 @@ export const defaultBox = style({
     margin: '0 auto 0 auto',
     padding: "2rem",
     borderRadius: '10px',
-    boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-    backgroundColor: `${vars.colors.primary}`,
+    boxShadow: 'rgba(255, 255, 255, 0.16) 0px 1px 4px',
+    backgroundColor: `rgba(50, 50, 50, 0.2)`,
+    color: `${vars.colors.complementary}`,
     textAlign: 'center'
 })
 
+export const smallCard = style({
+    minWidth: "20em",
+    maxWidth: '20em',
+    minHeight: '20em',
+    boxShadow: 'none',
+})
 export const generalCard = style({
-    minWidth: "40vw"
+    minWidth: "60vw"
 })
 
 export const largeCard = style({
-    minWidth: "60vw"
+
 })
 
 

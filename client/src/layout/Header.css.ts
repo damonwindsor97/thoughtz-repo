@@ -1,12 +1,16 @@
-import { style, globalStyle } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 import { vars } from "../styles/themes.css";
 
 
 export const Header = style({
     display: 'flex',
-    backgroundColor: `${vars.colors.primary}`,
-    borderBottom: `solid 1px ${vars.colors.notWhite}`,
+    boxShadow: 'rgba(255, 255, 255, 0.16) 0px 1px 4px',
     alignItems: 'center',
+    color: `${vars.colors.complementary}`,
+    position: 'relative',
+    zIndex: 1,
+    width: '100%',
+    backgroundColor: `${vars.colors.transparent}`
 })
 
 export const Nav = style({
@@ -15,15 +19,16 @@ export const Nav = style({
     width: '40em',
 });
 export const NavList = style({
-    margin: '2.5em',
+    margin: '1em',
     listStyle: 'none'
 })
 
 export const NavItem = style({
     display: 'inline-block',
     textAlign: 'center',
-    margin: '14px 16px',
+    margin: '0px 32px',
     position: 'relative',
+    fontSize: `${vars.fontSize["1x"]}`
 });
 
 export const NavLink = style({
@@ -45,7 +50,7 @@ export const Dropdown = style({
     position: 'absolute',
     backgroundColor: `${vars.colors.primary}`,
     minWidth: '190px',
-    boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+    border: `solid 1px ${vars.colors.brandLight}`,
     display: 'none',
     zIndex: 1,
     padding: '1em',
@@ -58,6 +63,7 @@ export const DropdownArrow = style({
 
 export const DropdownOpen = style({
     display: 'block',
+    transition: 'ease-in-out 0.4s',
 });
 
 export const DropdownItem = style({
@@ -72,6 +78,7 @@ export const DropdownItem = style({
     ":hover": {
         color: `${vars.colors.brand}`,
         cursor: 'pointer',
+
     }
 });
 

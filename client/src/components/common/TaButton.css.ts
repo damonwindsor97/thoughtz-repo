@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { vars } from "../../styles/themes.css";
 
 export const Button = style({
-    color: `${vars.colors.primary}`,
+    color: `${vars.colors.complementary}`,
     backgroundColor: `${vars.colors.brand}`,
     width: '100%',
     height: '2em',

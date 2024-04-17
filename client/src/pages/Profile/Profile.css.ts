@@ -28,6 +28,21 @@ export const profilePage = style({
 
 })
 
+export const buttonSection = style({
+    float: 'right'
+})
+
+export const button = style({
+    cursor: 'pointer',
+
+    transition: 'ease-in-out 0.4s',
+
+    ':hover': {
+        color: `${vars.colors.brand}`,
+        transition: 'ease-in-out 0.4s',
+    }
+})
+
 export const profileContainer = style({
     minWidth: '60vw',
     marginTop: '5em',

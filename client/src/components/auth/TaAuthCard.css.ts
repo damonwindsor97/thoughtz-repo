@@ -1,20 +1,16 @@
-import { style } from '@vanilla-extract/css'
+import { style, globalKeyframes } from '@vanilla-extract/css'
 import { vars } from '../../styles/themes.css'
+
+const glow = 'globalGlow';
 
 export const CardContainer = style({
     width: '25em',
     marginBottom: '5em',
-
-})
-
-export const AuthCard = style({
-
-
 })
 
 export const AuthMenu = style({
     textAlign: 'center',
-
+    paddingBottom: '20px'
 })
 
 export const TabBlock = style({
@@ -37,21 +33,29 @@ export const LoginMenuItem = style({
 })
 
 export const ActiveTab = style({
-    backgroundColor: 'rgba(0, 200, 212, .2)', // Add your custom styles for the active tab here
+    backgroundColor: 'rgba(0, 200, 212, .2)', 
     color: `${vars.colors.complementary}`,
     borderRadius: '20px'
 });
 
 //  SIGNUP
-
 export const SignupCard = style({
     marginTop: '1em',
     width: '25em',
     height: '30em',
     borderRadius: '50px',
-    boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-    backgroundColor: `${vars.colors.primary}`
+    // boxShadow: `0px 0px 100px 10px ${vars.colors.brand}`,
+    // animation: `${glow} 5s infinite`,
+    backgroundColor: `${vars.colors.complementary}`
 })
+
+// globalKeyframes(glow, {
+//     '0%': {boxShadow: `0px 0px 100px 10px ${vars.colors.brand}`},
+//     '25%': {boxShadow: `0px 0px 100px 10px ${vars.colors.brandDark}`},
+//     '50%': {boxShadow: `0px 0px 100px 10px ${vars.colors.brand}`},
+//     '75%': {boxShadow: `0px 0px 100px 10px ${vars.colors.brandDark}`},
+//     '100%': {boxShadow: `0px 0px 100px 10px ${vars.colors.brand}`},
+// })
 
 export const CardContent = style({
     textAlign:'center',
@@ -94,8 +98,10 @@ export const LoginCard = style({
     width: '25em',
     height: '20em',
     borderRadius: '50px',
-    boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-    backgroundColor: `${vars.colors.primary}`
+
+    backgroundColor: `${vars.colors.complementary}`,
+    // boxShadow: `0px 0px 100px 10px ${vars.colors.brand}`,
+    // animation: `${glow} 5s infinite`,
 })
 
 export const LoginInputField = style({
