@@ -1,6 +1,6 @@
 import * as styles from './TaCard.css'
 
-function TaCard({title, children, largeCard, smallCard}) {
+function TaCard({title, children, smallCard}) {
   return (
     <div className={styles.cardContainer}>
         <div className={`${styles.defaultBox} ${smallCard ? styles.smallCard : styles.generalCard}`}>

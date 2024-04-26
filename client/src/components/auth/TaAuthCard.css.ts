@@ -43,19 +43,12 @@ export const SignupCard = style({
     marginTop: '1em',
     width: '25em',
     height: '30em',
-    borderRadius: '50px',
-    // boxShadow: `0px 0px 100px 10px ${vars.colors.brand}`,
-    // animation: `${glow} 5s infinite`,
-    backgroundColor: `${vars.colors.complementary}`
+    borderRadius: '20px',
+    backgroundColor: `${vars.colors.complementary}`,
+
 })
 
-// globalKeyframes(glow, {
-//     '0%': {boxShadow: `0px 0px 100px 10px ${vars.colors.brand}`},
-//     '25%': {boxShadow: `0px 0px 100px 10px ${vars.colors.brandDark}`},
-//     '50%': {boxShadow: `0px 0px 100px 10px ${vars.colors.brand}`},
-//     '75%': {boxShadow: `0px 0px 100px 10px ${vars.colors.brandDark}`},
-//     '100%': {boxShadow: `0px 0px 100px 10px ${vars.colors.brand}`},
-// })
+
 
 export const CardContent = style({
     textAlign:'center',
@@ -97,11 +90,9 @@ export const LoginCard = style({
     marginTop: '1em',
     width: '25em',
     height: '20em',
-    borderRadius: '50px',
+    borderRadius: '20px',
 
     backgroundColor: `${vars.colors.complementary}`,
-    // boxShadow: `0px 0px 100px 10px ${vars.colors.brand}`,
-    // animation: `${glow} 5s infinite`,
 })
 
 export const LoginInputField = style({

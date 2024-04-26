@@ -3,7 +3,7 @@ import { vars } from "../../styles/themes.css";
 
 export const Button = style({
     color: `${vars.colors.complementary}`,
-    backgroundColor: `${vars.colors.brand}`,
+    backgroundColor: `${vars.colors.brandDark}`,
     width: '100%',
     height: '2em',
     lineHeight: '2em',
@@ -14,6 +14,6 @@ export const Button = style({
     borderStyle: 'none',
 
     ":hover": {
-        backgroundColor: `${vars.colors.brandDark}`
+        backgroundColor: `${vars.colors.brand}`
     }
 })

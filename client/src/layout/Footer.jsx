@@ -5,9 +5,7 @@ import Logo from '../assets/FULL_LOGO.png'
 function Footer() {
   return (
     <div className={styles.Footer}>
-      <div className={styles.LogoDiv}>
-        <img src={Logo} alt="thoughtz" className={styles.Logo}/>
-      </div>
+
       <div className={styles.Nav}>
         <p className={styles.NavItem}>Terms of Service</p>
         <p className={styles.NavItem}>Privacy Policy</p>

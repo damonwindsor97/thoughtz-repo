@@ -25,7 +25,11 @@ export const AdminBadge = style([Badge, {
 
 
 export const profilePage = style({
+    maxWidth: '968px'
+})
 
+export const profileContainer = style({
+    marginTop: '',
 })
 
 export const buttonSection = style({
@@ -34,7 +38,7 @@ export const buttonSection = style({
 
 export const button = style({
     cursor: 'pointer',
-
+    color: 'white',
     transition: 'ease-in-out 0.4s',
 
     ':hover': {
@@ -43,10 +47,6 @@ export const button = style({
     }
 })
 
-export const profileContainer = style({
-    minWidth: '60vw',
-    marginTop: '5em',
-})
 
 export const coverPicture = style({
     height: '15em',
@@ -91,4 +91,11 @@ export const fullname = style({
 
 export const profileCard = style({
     borderRadius: '10px'
+})
+
+
+export const PostsContainer = style({
+    width: '968px',
+    alignContent: 'start',
+    alignItems: 'start'
 })

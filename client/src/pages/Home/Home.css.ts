@@ -11,6 +11,7 @@ globalKeyframes(backgroundMove, {
 
 export const HomeBackground = style({
     minHeight: '90vh',
+    width: '100%',
     overflow: 'hidden',
     position: 'relative',
     background: 'linear-gradient(-45deg,rgba(63,174,251,0.8211659663865546) 17%, rgba(24,65,94,1) 67%, rgba(0,0,0,0) 90%)',
@@ -19,7 +20,12 @@ export const HomeBackground = style({
 });
 
 export const HomeContent = style({
+    width: '100%',
     position: 'relative',
+
+    justifyContent: 'center', // Center content horizontally
+    alignItems: 'center', // Center content vertically
+    flexDirection: 'column', // Stack content vertically
 });
 
 export const SmallBend = style({
@@ -57,12 +63,10 @@ export const FormSection = style({
 })
 
 export const loggedInSection = style({
-    minHeight: '85vh',
+    minHeight: '88vh',
     overflow: 'hidden',
-    position: 'relative',
-    background: 'linear-gradient(43deg, rgba(0,0,0,0) 0%, rgba(5,28,43,0.5802696078431373) 49%, rgba(0,0,0,0) 90%)',
-    backgroundSize: '400% 400%',
-    animation: `${backgroundMove} 20s linear infinite`
+    
+
 })
 
 export const BannerContainer = style({
@@ -89,7 +93,7 @@ export const InfoBlocks = style({
 export const InfoBlock = style({
     width: '50%',
     display: 'inline-block',
-
+    margin: '0 auto'
 
 })
 

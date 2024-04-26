@@ -64,7 +64,7 @@ function Home() {
           </div>
 
           <div className={`${styles.InfoBlocks}`}>
-            <div className={styles.InfoBlock}>
+            <div className={styles.InfoBlock} >
               <TaCard smallCard>
                   <p className={styles.DataNumber}>
                   {loading === true ? (
@@ -79,8 +79,8 @@ function Home() {
             </div>
 
             <div className={styles.InfoBlock}>
-              <TaCard smallCard>
-                <p className={styles.DataNumber}>69</p>
+              <TaCard smallCard style={{margin: '0 auto'}}>
+                <p className={styles.DataNumber}>0</p>
                 <span className={styles.InfoText}>Thoughts Created</span>
               </TaCard>
             </div>

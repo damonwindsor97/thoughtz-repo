@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { vars } from "../styles/themes.css";
 
 export const Footer = style({
-    height: '10em',
+    height: '8em',
     background: 'transparent',
     width: '100%'
 })

@@ -84,8 +84,8 @@ function Profile() {
       if (loading) {
         return (
         <div>
-                <div className='mt-5'>
-                    <TaProfileCard  className='mt-5' title="Loading...">
+                <div className='' style={{width: '968px'}}>
+                    <TaProfileCard  className='' title="Loading...">
                         <MoonLoader className='m-auto'/>
                     </TaProfileCard>
                 </div>
@@ -103,7 +103,7 @@ function Profile() {
                 <TaProfileCard title="">
 
                     <div className={styles.buttonSection}>
-                        <Link to={`/profile/edit/${user.id}`}><FaEdit className={styles.button}/></Link>
+                        <Link to={`/profile/edit/${user.id}`} style={{textDecoration: 'none'}}><FaEdit className={styles.button} /></Link>
                     </div>
 
                     <img className={styles.profilePicture} src={profile_image}/>
@@ -128,7 +128,7 @@ function Profile() {
         </div>
 
         {/* ------- POSTS -------- */}
-        <div className={`m-5`}>
+        <div className={styles.PostsContainer}>
             <TaCard title="">
                 <p>There are currently no posts...</p>
             </TaCard>

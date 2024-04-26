@@ -4,7 +4,6 @@ import { vars } from "../styles/themes.css";
 
 export const Header = style({
     display: 'flex',
-    boxShadow: 'rgba(255, 255, 255, 0.16) 0px 1px 4px',
     alignItems: 'center',
     color: `${vars.colors.complementary}`,
     position: 'relative',
@@ -20,7 +19,8 @@ export const Nav = style({
 });
 export const NavList = style({
     margin: '1em',
-    listStyle: 'none'
+    listStyle: 'none',
+    float: 'left'
 })
 
 export const NavItem = style({

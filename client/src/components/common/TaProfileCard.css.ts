@@ -10,7 +10,7 @@ export const cardContainer = style({
 })
 
 export const defaultBox = style({
-    minWidth: "40vw",
+    minWidth: "25em",
     minHeight: '25em',
     margin: '0 auto 0 auto',
     padding: "2rem",
@@ -22,7 +22,7 @@ export const defaultBox = style({
 })
 
 export const generalCard = style({
-    minWidth: "40vw",
+    minWidth: "30em",
     maxWidth: '25em'
 })
 
