@@ -16,21 +16,37 @@ export const HomeBackground = style({
     position: 'relative',
     background: 'linear-gradient(-45deg,rgba(63,174,251,0.8211659663865546) 17%, rgba(24,65,94,1) 67%, rgba(0,0,0,0) 90%)',
     backgroundSize: '400% 400%',
-    animation: `${backgroundMove} 20s linear infinite`
+    animation: `${backgroundMove} 20s linear infinite`,
+
+    '@media': {
+        'screen and (max-width: 920px)': {
+            minHeight: 'none',
+        }
+    }
 });
 
 export const HomeContent = style({
     width: '100%',
     position: 'relative',
 
-    justifyContent: 'center', // Center content horizontally
-    alignItems: 'center', // Center content vertically
-    flexDirection: 'column', // Stack content vertically
+    justifyContent: 'center', 
+    alignItems: 'center',
+    flexDirection: 'column',
+
+
+    '@media': {
+        'screen and (max-width: 920px)': {
+            margin: '0 auto'
+        },
+        '(prefers-reduced-motion)': {
+          transitionProperty: 'color'
+        },
+    }
 });
 
 export const SmallBend = style({
     position: 'relative',
-    top: '66.2vh',
+    top: '67vh',
     right: '8px',
     transform: 'translate(0%, 60%)'
 })
@@ -48,7 +64,23 @@ export const LogoSection = style({
     width: '45%',
     float: 'left',
     textAlign: 'right',
-    paddingTop: '8em'
+    paddingTop: '8em',
+
+    '@media': {
+        'screen and (max-width: 559px)': {
+            float: 'none',
+            margin: '0',
+            marginLeft: '25px'
+        },
+        '(prefers-reduced-motion)': {
+            transitionProperty: 'color',
+
+        },
+        'screen and (max-width: 920px) and (min-width: 560px)': {
+            float: 'none',
+            margin: '0 auto'
+        },
+    }
 })
 
 export const Logo = style({
@@ -60,6 +92,21 @@ export const FormSection = style({
     width: '45%',
     float: 'right',
 
+
+    '@media': {
+        'screen and (max-width: 559px)': {
+            float: 'none',
+            margin: '0',
+            marginLeft: '25px'
+        },
+        '(prefers-reduced-motion)': {
+            transitionProperty: 'color'
+        },
+        'screen and (max-width: 920px) and (min-width: 560px)': {
+            float: 'none',
+            margin: '0 auto'
+        },
+    }
 })
 
 export const loggedInSection = style({
