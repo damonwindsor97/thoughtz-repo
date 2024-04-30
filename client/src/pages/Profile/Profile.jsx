@@ -1,16 +1,19 @@
 import * as styles from './Profile.css'
 
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 import { toast } from 'react-toastify'
 import authService from '../../services/authService'
+import useAuth from '../../hooks/useAuth'
 
 import MoonLoader from 'react-spinners/MoonLoader'
+import { FaEdit } from "react-icons/fa";
 
 import TaCard from "../../components/common/TaCard"
 import TaProfileCard from '../../components/common/TaProfileCard'
 
 function Profile() {
+    const { user } = useAuth()
 
     const params = useParams();
     const [userData, setUserData] = useState({
@@ -81,8 +84,8 @@ function Profile() {
       if (loading) {
         return (
         <div>
-                <div className='mt-5'>
-                    <TaProfileCard  className='mt-5' title="Loading...">
+                <div className='' style={{width: '968px'}}>
+                    <TaProfileCard  className='' title="Loading...">
                         <MoonLoader className='m-auto'/>
                     </TaProfileCard>
                 </div>
@@ -98,6 +101,11 @@ function Profile() {
 
             <div className={styles.cardContainer}>
                 <TaProfileCard title="">
+
+                    <div className={styles.buttonSection}>
+                        <Link to={`/profile/edit/${user.id}`} style={{textDecoration: 'none'}}><FaEdit className={styles.button} /></Link>
+                    </div>
+
                     <img className={styles.profilePicture} src={profile_image}/>
                     <p className={styles.username}>@{username}</p>
                     <p className={styles.fullname}>{first_name} {last_name}</p>
@@ -120,8 +128,8 @@ function Profile() {
         </div>
 
         {/* ------- POSTS -------- */}
-        <div className='mb-5'>
-            <TaCard title="Posts" largeCard>
+        <div className={styles.PostsContainer}>
+            <TaCard title="">
                 <p>There are currently no posts...</p>
             </TaCard>
         </div>

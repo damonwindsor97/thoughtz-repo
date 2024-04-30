@@ -1,20 +1,16 @@
-import { style } from '@vanilla-extract/css'
+import { style, globalKeyframes } from '@vanilla-extract/css'
 import { vars } from '../../styles/themes.css'
+
+const glow = 'globalGlow';
 
 export const CardContainer = style({
     width: '25em',
     marginBottom: '5em',
-
-})
-
-export const AuthCard = style({
-
-
 })
 
 export const AuthMenu = style({
     textAlign: 'center',
-
+    paddingBottom: '20px'
 })
 
 export const TabBlock = style({
@@ -37,21 +33,29 @@ export const LoginMenuItem = style({
 })
 
 export const ActiveTab = style({
-    backgroundColor: 'rgba(0, 200, 212, .2)', // Add your custom styles for the active tab here
+    backgroundColor: 'rgba(0, 200, 212, .2)', 
     color: `${vars.colors.complementary}`,
     borderRadius: '20px'
 });
 
 //  SIGNUP
-
 export const SignupCard = style({
     marginTop: '1em',
     width: '25em',
     height: '30em',
-    borderRadius: '50px',
-    boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-    backgroundColor: `${vars.colors.primary}`
+    borderRadius: '20px',
+    backgroundColor: `${vars.colors.complementary}`,
+
+    '@media': {
+        'screen and (max-width: 429px)': {
+            width: '20em',
+            height: '31em'
+        }
+    }
+
 })
+
+
 
 export const CardContent = style({
     textAlign:'center',
@@ -93,9 +97,16 @@ export const LoginCard = style({
     marginTop: '1em',
     width: '25em',
     height: '20em',
-    borderRadius: '50px',
-    boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-    backgroundColor: `${vars.colors.primary}`
+    borderRadius: '20px',
+
+    backgroundColor: `${vars.colors.complementary}`,
+
+    '@media': {
+        'screen and (max-width: 429px)': {
+            width: '20em',
+
+        }
+    }
 })
 
 export const LoginInputField = style({

@@ -1,5 +1,13 @@
 import api from './api'
 
+async function getAllUsers(data){
+    const response = await api.get(
+        'auth/users',
+        data
+    )
+    return response
+}
+
 // REGISTER POST
 async function register(data){
     const response = await api.post(
@@ -69,7 +77,7 @@ function prepareFormData(data, uploadedfile){
 }
 
 const authService = {
-    register, login, getById, put
+    register, login, getById, put, getAllUsers
 }
 
 export default authService

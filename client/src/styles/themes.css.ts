@@ -14,7 +14,8 @@ export const root = createGlobalTheme(":root", {
         '3x': '20px', 
         '4x': '24px', 
         '5x': '28px',
-        '6x': '32px' 
+        '6x': '32px',
+        '8x': '48px'
     },
 
     fontWeight: {
@@ -27,12 +28,13 @@ export const root = createGlobalTheme(":root", {
     },
 
     colors: {
-        primary: 'rgb(255, 255, 255)',
-        complementary: 'rgb(0, 0, 0)',
+        primary: 'rgb(0, 0, 0)',
+        complementary: 'rgb(255, 255, 255)',
         brand: "rgb(0, 200, 212)",
         brandLight: 'rgb(219, 243, 243)',
         brandDark: 'rgb(29, 135, 141)',
-        notWhite: '#F9F9F9'
+        notWhite: '#F9F9F9',
+        transparent: 'transparent'
     },
     space: {
         none: '0',

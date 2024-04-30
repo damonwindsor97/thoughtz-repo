@@ -10,23 +10,65 @@ export const cardContainer = style({
 })
 
 export const defaultBox = style({
-    minWidth: "40vw",
-    maxWidth: '45vw',
     minHeight: '25em',
     margin: '0 auto 0 auto',
     padding: "2rem",
     borderRadius: '10px',
-    boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-    backgroundColor: `${vars.colors.primary}`,
-    textAlign: 'center'
+    boxShadow: 'rgba(255, 255, 255, 0.16) 0px 1px 4px',
+    backgroundColor: `rgba(50, 50, 50, 0.2)`,
+    color: `${vars.colors.complementary}`,
+    textAlign: 'center',
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            width: '70vw',
+            margin: '0 auto'
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            width: '70vw',
+            margin: '0 auto'
+        }
+    }
+})
+
+export const smallCard = style({
+    minWidth: "20em",
+    maxWidth: '20em',
+    minHeight: '20em',
+    boxShadow: 'none',
+    margin: 'none',
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            minWidth: "15em",
+            maxWidth: '15em',
+            minHeight: '15em',
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            minWidth: "16em",
+            maxWidth: '16em',
+            minHeight: '16em',
+        }
+    }
 })
 
 export const generalCard = style({
-    minWidth: "40vw"
+    width: "50em",
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            width: '70vw',
+            margin: '0 auto'
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            width: '70vw',
+            margin: '0 auto'
+        }
+    }
 })
 
 export const largeCard = style({
-    minWidth: "60vw"
+
 })
 
 

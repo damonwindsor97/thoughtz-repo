@@ -10,25 +10,24 @@ export const cardContainer = style({
 })
 
 export const defaultBox = style({
-    minWidth: "40vw",
     minHeight: '25em',
     margin: '0 auto 0 auto',
     padding: "2rem",
     borderRadius: '10px',
-    boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-    background: `linear-gradient(
-        45deg,
-        ${vars.colors.notWhite} 0%,
-        ${vars.colors.primary} 50%,
-        ${vars.colors.notWhite} 50%,
-        ${vars.colors.primary} 100%
-    )`,
+    backdropFilter: 'blur(5px)',
+    background: 'rgba(255, 255, 255, 0.1)',
+
     marginBottom: '1em'
 })
 
 export const generalCard = style({
-    minWidth: "40vw",
-    maxWidth: '25em'
+    width: "30em",
+
+    '@media':{
+        'screen and (max-width: 1200px)': {
+            width: '70vw'
+        }
+    }
 })
 
 export const largeCard = style({

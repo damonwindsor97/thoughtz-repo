@@ -128,8 +128,8 @@ async function fetchUser(){
 
   return (
     <div className='mt-5'>
-        <div>
-            <TaCard title="Edit Profile" >
+        <div className={styles.EditProfile}>
+          <h3 className='text-center m-5' style={{color: 'white'}}>Edit Profile</h3>
             <form onSubmit={handleSubmit}>
               <div >
               <input
@@ -137,7 +137,7 @@ async function fetchUser(){
                   name="username"
                   value={username}
                   placeholder="Username"
-                  className={styles.SignupInputField}
+                  className={styles.DisabledInputField}
                   onChange={handleTextChange}
                   />
                   <input
@@ -145,17 +145,16 @@ async function fetchUser(){
                   name="email"
                   value={email}
                   placeholder="Email Address"
-                  className={styles.SignupInputField}
+                  className={styles.DisabledInputField}
                   onChange={handleTextChange}
                   disabled
-
                   />
               <input
                   type="text"
                   name="first_name"
                   value={first_name}
                   placeholder="First Name"
-                  className={`${styles.SignupInputField} w-50`}
+                  className={`${styles.InputField} w-50`}
                   onChange={handleTextChange}
                   />
               <input
@@ -163,7 +162,7 @@ async function fetchUser(){
                   name="last_name"
                   value={last_name}
                   placeholder="Last Name"
-                  className={`${styles.SignupInputField} w-50`}
+                  className={`${styles.InputField} w-50`}
                   onChange={handleTextChange}
                   />
               <textarea
@@ -171,27 +170,31 @@ async function fetchUser(){
                   name="bio"
                   value={bio}
                   placeholder="Bio"
-                  className={`${styles.SignupInputField} h-25`}
+                  className={`${styles.TextAreaField} `}
                   onChange={handleTextChange}
                   />
                   
-                  {/* GROUP 6: PRODUCT IMAGE */}
+                  {/* GROUP 6: PROFILE IMAGE */}
                   <Form.Group className="mb-3" controlId="image">
-                    <Form.Label>Profile image</Form.Label>
+                    <Form.Label style={{color: 'white'}}>Profile image</Form.Label>
                     <Form.Control 
                       type="file"
                       className="mb-4"
                       onChange={handleFileChange}
                     />
                   </Form.Group>
+                  <div className={styles.CurrentImageDiv}>
+                    <p className={styles.CurrentImageText}>Current Image</p>
+                    <img src={user.profile_image} style={{height: '150px', borderRadius: '10px'}}/>
+                  </div>
 
               </div>
 
               <div>
-                  <TaButton content={loading ? <BarLoader/> : "Submit"} type="submit" />
+                  <TaButton content={loading ? <BarLoader/> : "Save"} type="submit"/>
               </div>
               </form>
-            </TaCard>
+
         </div>
     </div>
   )

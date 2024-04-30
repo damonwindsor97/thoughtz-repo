@@ -25,13 +25,39 @@ export const AdminBadge = style([Badge, {
 
 
 export const profilePage = style({
+    maxWidth: '968px',
 
+    '@media': {
+        'screen and (max-width: 771px)': {
+            width: '70vw',
+            margin: '0 auto'
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            width: '70vw',
+            margin: '0 auto'
+        }
+    }
 })
 
 export const profileContainer = style({
-    minWidth: '60vw',
-    marginTop: '5em',
+    marginTop: '',
 })
+
+export const buttonSection = style({
+    float: 'right'
+})
+
+export const button = style({
+    cursor: 'pointer',
+    color: 'white',
+    transition: 'ease-in-out 0.4s',
+
+    ':hover': {
+        color: `${vars.colors.brand}`,
+        transition: 'ease-in-out 0.4s',
+    }
+})
+
 
 export const coverPicture = style({
     height: '15em',
@@ -75,5 +101,25 @@ export const fullname = style({
 })
 
 export const profileCard = style({
-    borderRadius: '10px'
+    borderRadius: '10px',
+
+    
+})
+
+
+export const PostsContainer = style({
+    width: '968px',
+    alignContent: 'start',
+    alignItems: 'start',
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            width: '70vw',
+            margin: '0 auto'
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            width: '70vw',
+            margin: '0 auto'
+        }
+    }
 })
