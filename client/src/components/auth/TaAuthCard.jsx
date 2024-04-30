@@ -95,9 +95,7 @@ export default function TaAuthCard() {
                             LOGIN
                         </Tab>
                       </div>
-                      <div className={styles.TabBlock}>
 
-                      </div>
                       <div className={styles.TabBlock}>
                         <Tab value={2} className={`${styles.LoginMenuItem} ${tab === 2 && styles.ActiveTab}`}>
                             SIGNUP

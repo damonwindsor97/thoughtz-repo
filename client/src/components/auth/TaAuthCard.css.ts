@@ -29,6 +29,14 @@ export const LoginMenuItem = style({
 
     ":hover": {
         color: `${vars.colors.complementary}`
+    },
+
+
+    '@media': {
+        'screen and (max-width: 450px)': {
+            padding: '1px 5px 1px 5px',
+
+        }
     }
 })
 
@@ -47,7 +55,7 @@ export const SignupCard = style({
     backgroundColor: `${vars.colors.complementary}`,
 
     '@media': {
-        'screen and (max-width: 429px)': {
+        'screen and (max-width: 450px)': {
             width: '20em',
             height: '31em'
         }
@@ -102,7 +110,7 @@ export const LoginCard = style({
     backgroundColor: `${vars.colors.complementary}`,
 
     '@media': {
-        'screen and (max-width: 429px)': {
+        'screen and (max-width: 450px)': {
             width: '20em',
 
         }
