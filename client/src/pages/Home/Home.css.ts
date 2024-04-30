@@ -114,11 +114,16 @@ export const FormSection = style({
 export const loggedInSection = style({
     minHeight: '88vh',
     overflow: 'hidden',
-    
+    width: '968px',
 
     '@media': {
         'screen and (max-width: 771px)': {
-            
+            width: '70vw',
+            margin: '0 auto'
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            width: '70vw',
+            margin: '0 auto'
         }
     }
 })

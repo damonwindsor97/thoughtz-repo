@@ -3,6 +3,7 @@ import { vars } from "../../styles/themes.css";
 
 export const EditProfile = style({
     width: '70vw',
+    maxWidth: '968px',
     margin: '0 auto',
     marginBottom: '5em',
     paddingLeft: '2em',
@@ -10,9 +11,11 @@ export const EditProfile = style({
     '@media': {
         'screen and (max-width: 771px)': {
             width: '70vw',
+
         },
         'screen and (max-width: 1320px) and (min-width: 772px)': {
             width: '70vw',
+            margin: '0 auto'
         }
     }
 })
