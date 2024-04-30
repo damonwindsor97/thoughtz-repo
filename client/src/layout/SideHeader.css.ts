@@ -11,10 +11,30 @@ export const SideHeaderContainer = style({
     alignItems: 'center',
     height: '100vh', 
     flex: '0 0 auto', 
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            width: '4em',
+
+        },
+
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            width: '4em',
+        }
+    }
 });
 
 export const LogoDiv = style({
-    marginTop: '2em'
+    marginTop: '2em',
+    
+    '@media': {
+        'screen and (max-width: 771px)': {
+            display: 'none'
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            display: 'none'
+        }
+    }
 })
 
 export const SideHeader = style({
@@ -22,8 +42,16 @@ export const SideHeader = style({
     width: '100%',
     margin: '0',
     padding: '0',
-    paddingTop: '20em',
+    paddingTop: '2em',
 
+    '@media': {
+        'screen and (max-width: 771px)':{
+            paddingTop: 0
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            paddingTop: 0
+        }
+    }
 });
 
 export const SideHeaderItem = style({
@@ -53,5 +81,15 @@ export const NavIcon = style({
 })
 
 export const NavText = style({
-    margin: '3em'
+    margin: '3em',
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            display: 'none'
+        },
+
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            display: 'none'
+        }
+    }
 });

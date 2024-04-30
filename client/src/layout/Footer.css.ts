@@ -27,5 +27,11 @@ export const Nav = style({
 export const NavItem = style({
     display: 'inline-block',
     paddingLeft: '35px',
-    color: `${vars.colors.notWhite}`
+    color: `${vars.colors.notWhite}`,
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            fontSize: `${vars.fontSize["1x"]}`
+        }
+    }
 })

@@ -34,23 +34,23 @@ const {user, logoutUser} = useAuth()
             <img src={Logo} alt="thoughtz" style={{width: '150px'}}/>
         </div>
             <ul className={styles.SideHeader}>
-                <li className={styles.SideHeaderItem}>
-                    <Link to="/" style={{ textDecoration: 'none', color: 'white' }}><span className={styles.NavText}>Home</span></Link>
+            <Link to="/" style={{ textDecoration: 'none', color: 'white' }}><li className={styles.SideHeaderItem}>
+                    <span className={styles.NavText}>Home</span>
                     <HouseIcon className={styles.NavIcon} />
-                </li>
-                <li className={styles.SideHeaderItem}>
-                    <Link style={{ textDecoration: 'none', color: 'white' }}><span className={styles.NavText}>Thoughts</span></Link>
+                </li></Link>
+                <Link style={{ textDecoration: 'none', color: 'white' }}><li className={styles.SideHeaderItem}>
+                    <span className={styles.NavText}>Thoughts</span>
                     <TfiThought className={styles.NavIcon} />
-                </li>
-                <li className={styles.SideHeaderItem}>
-                    <Link style={{ textDecoration: 'none', color: 'white' }}><span className={styles.NavText}>Settings</span></Link>
+                </li></Link>
+                <Link style={{ textDecoration: 'none', color: 'white' }}><li className={styles.SideHeaderItem}>
+                    <span className={styles.NavText}>Settings</span>
                     <SettingsIcon className={styles.NavIcon} />
-                </li>
+                </li></Link>
             </ul>
 
 
 
-        <Tooltip title="Account settings">
+        <Tooltip title="Account settings" style={{margin: '0 auto'}}>
           <IconButton
             onClick={handleClick}
             size="small"

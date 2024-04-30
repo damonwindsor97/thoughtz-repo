@@ -25,7 +25,18 @@ export const AdminBadge = style([Badge, {
 
 
 export const profilePage = style({
-    maxWidth: '968px'
+    maxWidth: '968px',
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            width: '70vw',
+            margin: '0 auto'
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            width: '70vw',
+            margin: '0 auto'
+        }
+    }
 })
 
 export const profileContainer = style({
@@ -90,12 +101,25 @@ export const fullname = style({
 })
 
 export const profileCard = style({
-    borderRadius: '10px'
+    borderRadius: '10px',
+
+    
 })
 
 
 export const PostsContainer = style({
     width: '968px',
     alignContent: 'start',
-    alignItems: 'start'
+    alignItems: 'start',
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            width: '70vw',
+            margin: '0 auto'
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            width: '70vw',
+            margin: '0 auto'
+        }
+    }
 })

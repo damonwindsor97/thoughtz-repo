@@ -2,10 +2,19 @@ import { style } from "@vanilla-extract/css";
 import { vars } from "../../styles/themes.css";
 
 export const EditProfile = style({
-    width: '968px',
+    width: '70vw',
     margin: '0 auto',
     marginBottom: '5em',
-    paddingLeft: '2em'
+    paddingLeft: '2em',
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            width: '70vw',
+        },
+        'screen and (max-width: 1320px) and (min-width: 772px)': {
+            width: '70vw',
+        }
+    }
 })
 
 export const InputField = style({

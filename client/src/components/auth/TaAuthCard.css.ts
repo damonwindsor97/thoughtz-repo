@@ -46,6 +46,13 @@ export const SignupCard = style({
     borderRadius: '20px',
     backgroundColor: `${vars.colors.complementary}`,
 
+    '@media': {
+        'screen and (max-width: 429px)': {
+            width: '20em',
+            height: '31em'
+        }
+    }
+
 })
 
 
@@ -93,6 +100,13 @@ export const LoginCard = style({
     borderRadius: '20px',
 
     backgroundColor: `${vars.colors.complementary}`,
+
+    '@media': {
+        'screen and (max-width: 429px)': {
+            width: '20em',
+
+        }
+    }
 })
 
 export const LoginInputField = style({

@@ -10,7 +10,7 @@ globalKeyframes(backgroundMove, {
 });
 
 export const HomeBackground = style({
-    minHeight: '90vh',
+    minHeight: '100vh',
     width: '100%',
     overflow: 'hidden',
     position: 'relative',
@@ -46,15 +46,15 @@ export const HomeContent = style({
 
 export const SmallBend = style({
     position: 'relative',
-    top: '67vh',
+    top: '80vh',
     right: '8px',
     transform: 'translate(0%, 60%)'
 })
 
 export const BigSquiggle = style({
     position: 'absolute',
-    top: '60%', 
-    left: '83%', 
+    top: '70%', 
+    left: '88%', 
     transform: 'translate(-50%, -50%)', 
     zIndex: 0,
 });
@@ -70,7 +70,8 @@ export const LogoSection = style({
         'screen and (max-width: 559px)': {
             float: 'none',
             margin: '0',
-            marginLeft: '25px'
+            marginLeft: '25px',
+            paddingTop: '0em'
         },
         '(prefers-reduced-motion)': {
             transitionProperty: 'color',
@@ -78,7 +79,8 @@ export const LogoSection = style({
         },
         'screen and (max-width: 920px) and (min-width: 560px)': {
             float: 'none',
-            margin: '0 auto'
+            margin: '0 auto',
+            paddingTop: '0em'
         },
     }
 })
@@ -94,7 +96,7 @@ export const FormSection = style({
 
 
     '@media': {
-        'screen and (max-width: 559px)': {
+        'screen and (max-width: 771px)': {
             float: 'none',
             margin: '0',
             marginLeft: '25px'
@@ -114,6 +116,11 @@ export const loggedInSection = style({
     overflow: 'hidden',
     
 
+    '@media': {
+        'screen and (max-width: 771px)': {
+            
+        }
+    }
 })
 
 export const BannerContainer = style({
@@ -125,7 +132,21 @@ export const BannerContainer = style({
     padding: '5em',
     backgroundColor: `rgba(50, 50, 50, 0.2)`,
     color: `${vars.colors.complementary}`,
-    marginTop: '3em'
+    marginTop: '3em',
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            width: '60vw',
+            height: '15em',
+            margin: '3em',
+            padding: '2em',
+            fontSize: `${vars.fontSize["1x"]}`
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            width: '65vw',
+            margin: '3em'
+        }
+    }
 
 })
 
@@ -135,12 +156,36 @@ export const InfoBlocks = style({
     margin: '0 auto',
     marginTop: '5em',
 
+    '@media': {
+        'screen and (max-width: 771px)': {
+            width: '250px',
+            margin: '0 auto'
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            width: '70vw',
+            margin: '0 auto'
+        }
+
+    }
 })
 
 export const InfoBlock = style({
     width: '50%',
     display: 'inline-block',
-    margin: '0 auto'
+    margin: '0 auto',
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            margin: '0',
+            width: '40vw',
+
+        },
+
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            width: '33vw',
+            
+        }
+    }
 
 })
 
@@ -154,7 +199,13 @@ export const DataNumber = style({
     marginTop: '35px',
     fontSize: `${vars.fontSize["8x"]}`,
     fontWeight: `${vars.fontWeight.extraBold}`,
-    textShadow: `0 0 10px ${vars.colors.brand}`
+    textShadow: `0 0 10px ${vars.colors.brand}`,
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            marginTop: 0
+        }
+    }
 })
 
 export const InfoText = style({

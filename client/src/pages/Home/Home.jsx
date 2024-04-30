@@ -79,7 +79,7 @@ function Home() {
             </div>
 
             <div className={styles.InfoBlock}>
-              <TaCard smallCard style={{margin: '0 auto'}}>
+              <TaCard smallCard >
                 <p className={styles.DataNumber}>0</p>
                 <span className={styles.InfoText}>Thoughts Created</span>
               </TaCard>

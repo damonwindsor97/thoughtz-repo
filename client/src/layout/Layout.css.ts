@@ -14,14 +14,32 @@ export const app = style({
     background: vars.colors.primary,
     display: "flex",
     flexDirection: "column",
-    minHeight: "85vh",
+    minHeight: "100vh",
+    '@media': {
+        'screen and (max-width: 771px)': {
+            minHeight: '100vh'
+        },
 
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            minHeight: '100vh'
+        }
+    }
 })
 
 // Adjustments for signed-in users
 export const appContentSignedIn = style({
-    justifyContent: 'flex-start', // Align content to the start for signed-in users
-    display: 'flex'
+    justifyContent: 'flex-start', 
+    display: 'flex',
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            justifyContent: 'normal',
+            display: ''
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+
+        }
+    }
 });
 
 export const appContent = style({
@@ -29,8 +47,7 @@ export const appContent = style({
     background: 'linear-gradient(43deg, rgba(0,0,0,0) 0%, rgba(5,28,43,0.5802696078431373) 49%, rgba(0,0,0,0) 90%)',
     backgroundSize: '400% 400%',
     animation: `${backgroundMove} 20s linear infinite`,
-    minHeight: '85vh',
+    minHeight: '100vh', 
     alignItems: 'center',
-    justifyContent: 'center'
-
+    justifyContent: 'center',
 })
