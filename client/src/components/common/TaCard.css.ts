@@ -3,7 +3,6 @@ import { vars } from "../../styles/themes.css";
 
 
 export const cardContainer = style({
-    minHeight: "40vh",
     display: "flex",
     flexDirection: "column",
     

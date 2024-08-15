@@ -134,7 +134,7 @@ export const BannerContainer = style({
     borderRadius: '10px',
     width: '50em',
     margin: '0 auto',
-    padding: '5em',
+    padding: '3em',
     backgroundColor: `rgba(50, 50, 50, 0.2)`,
     color: `${vars.colors.complementary}`,
     marginTop: '3em',
@@ -148,7 +148,7 @@ export const BannerContainer = style({
             fontSize: `${vars.fontSize["1x"]}`
         },
         'screen and (max-width: 1200px) and (min-width: 772px)': {
-            width: '65vw',
+            width: '60vw',
             margin: '3em'
         }
     }
@@ -164,11 +164,11 @@ export const InfoBlocks = style({
     '@media': {
         'screen and (max-width: 771px)': {
             width: '250px',
-            margin: '0 auto'
+            margin: 'auto'
         },
         'screen and (max-width: 1200px) and (min-width: 772px)': {
             width: '70vw',
-            margin: '0 auto'
+            margin: 'auto'
         }
 
     }
@@ -177,13 +177,13 @@ export const InfoBlocks = style({
 export const InfoBlock = style({
     width: '50%',
     display: 'inline-block',
-    margin: '0 auto',
+
 
     '@media': {
         'screen and (max-width: 771px)': {
             margin: '0',
             width: '40vw',
-
+       
         },
 
         'screen and (max-width: 1200px) and (min-width: 772px)': {
@@ -208,12 +208,25 @@ export const DataNumber = style({
 
     '@media': {
         'screen and (max-width: 771px)': {
-            marginTop: 0
+            marginTop: 0,
+            fontSize: `${vars.fontSize['6x']}`
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            fontSize: `${vars.fontSize['6x']}`
         }
     }
 })
 
 export const InfoText = style({
     fontSize: `${vars.fontSize["4x"]}`,
-    fontWeight: `${vars.fontWeight.bolder}`
+    fontWeight: `${vars.fontWeight.bolder}`,
+
+    '@media': {
+        'screen and (max-width: 771px)': {
+            fontSize: `${vars.fontSize['3x']}`
+        },
+        'screen and (max-width: 1200px) and (min-width: 772px)': {
+            fontSize: `${vars.fontSize['3x']}`
+        }
+    }
 })
