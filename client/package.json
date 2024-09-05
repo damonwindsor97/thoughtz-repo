@@ -17,7 +17,7 @@
     "@mui/material": "^5.15.12",
     "@radix-ui/react-slot": "^1.0.2",
     "@vanilla-extract/css": "^1.14.1",
-    "axios": "^1.6.7",
+    "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
